@@ -1,0 +1,13 @@
+[{"model": "medico.consultation", "pk": 1, "fields": {"patient_nom": "Ouchen", "patient_prenom": "Wissal", "patient_genre": "F", "patient_age": 21, "description": "tout va bien.", "date": "2025-11-05T00:00:00Z"}},
+{"model": "medico.consultation", "pk": 2, "fields": {"patient_nom": "essaiydy", "patient_prenom": "Abir", "patient_genre": "F", "patient_age": 20, "description": "Bilan sanguin et fatigue chronique.", "date": "2025-11-03T00:00:00Z"}}, 
+{"model": "medico.consultation", "pk": 3, "fields": {"patient_nom": "zakraf", "patient_prenom": "rania", "patient_genre": "F", "patient_age": 21, "description": "Douleurs lombaires persistantes depuis 2 semaines.", "date": "2025-11-02T00:00:00Z"}}, 
+{"model": "medico.consultation", "pk": 4, "fields": {"patient_nom": "Lesdif", "patient_prenom": "Deyae", "patient_genre": "H", "patient_age": 23, "description": "Consultation annuelle de contrôle général.", "date": "2025-11-01T00:00:00Z"}},
+{"model": "medico.consultation", "pk": 5, "fields": {"patient_nom": "ouchen", "patient_prenom": "kawtar", "patient_genre": "F", "patient_age": 25, "description": "Douleur abdominale.", "date": "2025-11-15"}},
+{"model": "medico.consultation", "pk": 6, "fields": {"patient_nom": "kristoph", "patient_prenom": "Blac", "patient_genre": "H", "patient_age": 26, "description": "Mal de dos.", "date": "2025-11-01"}},
+{"model": "medico.consultation", "pk": 7, "fields": {"patient_nom": "Paradis", "patient_prenom": "Arnaud", "patient_genre": "H", "patient_age": 27, "description": "Hypertension.", "date": "2025-11-01"}},
+{"model": "medico.consultation", "pk": 8, "fields": {"patient_nom": "Alaoui", "patient_prenom": "Amine", "patient_genre": "H", "patient_age": 28, "description": "Allergies saisonnières.", "date": "2025-11-01"}},
+{"model": "medico.consultation", "pk": 9, "fields": {"patient_nom": "Le", "patient_prenom": "Anir", "patient_genre": "H", "patient_age": 29, "description": "Infection urinaire.", "date": "2025-11-01"}},
+{"model": "medico.consultation", "pk": 10, "fields": {"patient_nom": "Ezoubair", "patient_prenom": "Fatima", "patient_genre": "F", "patient_age": 30, "description": "Consultation générale.", "date": "2025-11-01"}},
+{"model": "medico.consultation", "pk": 11, "fields": {"patient_nom": "Blac", "patient_prenom": "Sophie", "patient_genre": "F", "patient_age": 31, "description": "Fièvre et toux.", "date": "2025-11-01"}},
+{"model": "medico.consultation", "pk": 12, "fields": {"patient_nom": "Noel", "patient_prenom": "Maxime", "patient_genre": "H", "patient_age": 32, "description": "Mal de dos.", "date": "2025-11-01"}}
+]

@@ -1,0 +1,18 @@
+{% extends "medico/base.html" %}
+{% block title %}Traitement - Medico{% endblock %}
+{% block content %}
+<h1 class="mb-4">
+  {% if traitement %}Modifier{% else %}Ajouter{% endif %} un traitement — consultation n° {{ consultation.id }}
+</h1>
+
+<div class="card">
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-success">Enregistrer</button>
+      <a href="{% url 'consultation_detail' consultation.id %}" class="btn btn-secondary ms-2">Annuler</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

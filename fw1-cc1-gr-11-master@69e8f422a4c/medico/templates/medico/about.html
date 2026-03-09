@@ -1,0 +1,55 @@
+{% extends "medico/base.html" %}
+
+{% block title %}À propos - Medico{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">À propos de l'application Medico</h1>
+
+<div class="row g-4">
+    <div class="col-md-7">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title mb-3">
+                    <i class="bi bi-heart-pulse text-primary me-2"></i>
+                    Une application pour le suivi des consultations
+                </h5>
+                <p class="card-text">
+                    Medico est une application web qui permet à un médecin de gérer ses
+                    consultations : informations patient, description de la consultation,
+                    date, ainsi que les traitements associés.
+                </p>
+                <p class="card-text">
+                    Elle ne gère qu’un seul médecin et les patients ne sont pas des
+                    utilisateurs de l’application.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title mb-3">
+                    <i class="bi bi-mortarboard text-primary me-2"></i>
+                    Contexte pédagogique
+                </h5>
+                <ul class="list-unstyled small">
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle text-primary me-1"></i>
+                        Module : Framework Web 1
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle text-primary me-1"></i>
+                        Niveau : L3 Informatique miage
+                    </li>
+                    <li class="mb-2">
+                        <i class="bi bi-check-circle text-primary me-1"></i>
+                        Université d’Orléans
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

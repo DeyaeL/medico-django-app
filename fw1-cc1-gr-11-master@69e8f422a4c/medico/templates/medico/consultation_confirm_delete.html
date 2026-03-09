@@ -1,0 +1,51 @@
+{% extends "medico/base.html" %}
+
+{% block title %}Supprimer la consultation n°{{ consultation.id }} - Medico{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-danger">Supprimer la consultation n° {{ consultation.id }} ?</h1>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <ul class="mb-0">
+            <li><strong>Patient :</strong> {{ consultation.patient_nom }} {{ consultation.patient_prenom }}</li>
+            <li><strong>Date :</strong> {{ consultation.date }}</li>
+            <li><strong>Description :</strong> {{ consultation.description }}</li>
+        </ul>
+    </div>
+</div>
+
+<p class="text-warning">Cette action est <strong>définitive</strong>.</p>
+
+<form method="post" class="d-inline">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+</form>
+<a href="{% url 'consultation_detail' consultation.id %}" class="btn btn-secondary ms-2">
+    Annuler
+</a>
+<h1 class="mb-4 text-danger">Supprimer ce traitement ?</h1>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <p><strong>Médicament :</strong> {{ traitement.medicament }}</p>
+        <p><strong>Quantité :</strong> {{ traitement.quantite }} {{ traitement.contenant }}</p>
+        <p><strong>Durée :</strong> {{ traitement.duree }} jours</p>
+        <p><strong>Fréquence :</strong> {{ traitement.frequence }}</p>
+        <p><strong>Moment :</strong> {{ traitement.moment }}</p>
+        <p class="text-muted mb-0">
+            Consultation n° {{ consultation.id }} – {{ consultation.patient_nom }} {{ consultation.patient_prenom }}
+        </p>
+    </div>
+</div>
+
+<p class="text-warning">Cette action est <strong>définitive</strong>.</p>
+
+<form method="post" class="d-inline">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+</form>
+<a href="{% url 'consultation_detail' consultation.id %}" class="btn btn-secondary ms-2">
+    Annuler
+</a>
+{% endblock %}

@@ -1,0 +1,44 @@
+[33m39b04b7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;33mtag: [m[1;33mquestion14[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: pull origin master: Fast-forward
+[33m986c16f[m HEAD@{1}: commit: ajout de readme.ma
+[33mf4b8193[m[33m ([m[1;33mtag: [m[1;33mquestion13[m[33m)[m HEAD@{2}: commit: Question 13 : ajout des extensions 1️Ordonnance médicale 2️ Historique patient avec tendance et graphique 3Assistant vocal pour la description de consultation
+[33m853cd6c[m[33m ([m[1;33mtag: [m[1;33mquestion12[m[33m)[m HEAD@{3}: pull origin master: Fast-forward
+[33m1e2394b[m HEAD@{4}: commit: Question 10 : design amélioré avec Bootstrap
+[33mae5bef8[m[33m ([m[1;33mtag: [m[1;33mquestion10[m[33m, [m[1;31morigin/abir[m[33m, [m[1;32mabir[m[33m)[m HEAD@{5}: pull origin abir: Fast-forward
+[33ma18fe3b[m[33m ([m[1;33mtag: [m[1;33mquestion9[m[33m)[m HEAD@{6}: reset: moving to HEAD
+[33ma18fe3b[m[33m ([m[1;33mtag: [m[1;33mquestion9[m[33m)[m HEAD@{7}: checkout: moving from abir to master
+[33mae5bef8[m[33m ([m[1;33mtag: [m[1;33mquestion10[m[33m, [m[1;31morigin/abir[m[33m, [m[1;32mabir[m[33m)[m HEAD@{8}: commit: Question 10 : template de base, menu et intégration Bootstrap
+[33ma18fe3b[m[33m ([m[1;33mtag: [m[1;33mquestion9[m[33m)[m HEAD@{9}: pull origin master: Fast-forward
+[33m3aeee65[m HEAD@{10}: checkout: moving from master to abir
+[33ma18fe3b[m[33m ([m[1;33mtag: [m[1;33mquestion9[m[33m)[m HEAD@{11}: pull origin master: Fast-forward
+[33m29d4352[m HEAD@{12}: commit (merge): Question 7 : ajout du formulaire et de la vue pour créer une consultation
+[33m65abcd4[m HEAD@{13}: commit: Nettoyage fichiers temporaires (.pyc, __pycache__)
+[33m561d5df[m HEAD@{14}: checkout: moving from abir to master
+[33m3aeee65[m HEAD@{15}: checkout: moving from abir to abir
+[33m3aeee65[m HEAD@{16}: commit: Question 7 : ajout du formulaire et de la vue pour créer une consultation
+[33m68709c0[m HEAD@{17}: commit: Question 7 : ajout du formulaire et de la vue pour créer une consultation
+[33m8d6df72[m[33m ([m[1;33mtag: [m[1;33mquestion7[m[33m)[m HEAD@{18}: checkout: moving from master to abir
+[33m561d5df[m HEAD@{19}: commit: Mise à jour du .gitignore avant de changer de branche
+[33m8ea65a2[m HEAD@{20}: checkout: moving from abir to master
+[33m8d6df72[m[33m ([m[1;33mtag: [m[1;33mquestion7[m[33m)[m HEAD@{21}: commit (merge): Question 7 : ajout du formulaire et de la vue pour créer une consultation
+[33mc3676cf[m HEAD@{22}: reset: moving to HEAD
+[33mc3676cf[m HEAD@{23}: reset: moving to HEAD
+[33mc3676cf[m HEAD@{24}: pull origin master: updating HEAD
+[33mc3676cf[m HEAD@{25}: pull origin master: updating HEAD
+[33mc3676cf[m HEAD@{26}: commit: Question 3
+[33m8ea65a2[m HEAD@{27}: reset: moving to origin/master
+[33mfae359c[m HEAD@{28}: checkout: moving from master to abir
+[33m8ea65a2[m HEAD@{29}: checkout: moving from abir to master
+[33mfae359c[m HEAD@{30}: checkout: moving from master to abir
+[33m8ea65a2[m HEAD@{31}: pull origin master: Fast-forward
+[33m2edb894[m HEAD@{32}: checkout: moving from abir to master
+[33mfae359c[m HEAD@{33}: reset: moving to HEAD
+[33mfae359c[m HEAD@{34}: checkout: moving from master to abir
+[33m2edb894[m HEAD@{35}: checkout: moving from master to master
+[33m2edb894[m HEAD@{36}: commit: Question 2
+[33m3ea0adf[m HEAD@{37}: commit: Question 2
+[33mfae359c[m HEAD@{38}: merge abir: Fast-forward
+[33m3013633[m[33m ([m[1;33mtag: [m[1;33mquestion1[m[33m)[m HEAD@{39}: checkout: moving from abir to master
+[33mfae359c[m HEAD@{40}: commit: la structure demandée par le prof
+[33mf500a0b[m[33m ([m[1;33mtag: [m[1;33mquestion2[m[33m)[m HEAD@{41}: commit: Question 2 : ajout de la page /about/
+[33m3013633[m[33m ([m[1;33mtag: [m[1;33mquestion1[m[33m)[m HEAD@{42}: checkout: moving from master to abir
+[33m3013633[m[33m ([m[1;33mtag: [m[1;33mquestion1[m[33m)[m HEAD@{43}: clone: from https://pdicost.univ-orleans.fr/git/scm/fw2025/fw1-cc1-gr-11.git

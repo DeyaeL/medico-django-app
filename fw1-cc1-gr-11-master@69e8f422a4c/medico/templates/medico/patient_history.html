@@ -1,0 +1,126 @@
+{% extends "medico/base.html" %}
+
+{% block title %}Historique de {{ patient_prenom }} {{ patient_nom }} - Medico{% endblock %}
+
+{% block content %}
+<h1 class="mb-2">Historique de {{ patient_prenom }} {{ patient_nom }}</h1>
+
+<p class="text-muted mb-3">
+  Genre : {{ patient_genre }} • Âge : {{ patient_age }} ans
+</p>
+
+{% if tendance %}
+  <div class="mb-4">
+    {% if tendance == "Amélioration" %}
+      <span class="badge bg-success">
+        🔼 Évolution de l'état : Amélioration
+      </span>
+    {% elif tendance == "Dégradation" %}
+      <span class="badge bg-danger">
+        🔽 Évolution de l'état : Dégradation
+      </span>
+    {% else %}
+      <span class="badge bg-secondary">
+        ➖ Évolution de l'état : Stable
+      </span>
+    {% endif %}
+    <span class="small text-muted ms-2">
+      (calculée sur les 3 dernières consultations)
+    </span>
+  </div>
+{% else %}
+  <p class="text-muted mb-4">
+    Pas assez de consultations pour déterminer une tendance.
+  </p>
+{% endif %}
+
+<a href="{% url 'patients_list' %}" class="btn btn-secondary mb-4">
+  <i class="bi bi-arrow-left-circle"></i> Retour à la liste des patients
+</a>
+<div class="card mb-4">
+  <div class="card-body">
+    <h2 class="h6 mb-3">Évolution du nombre de consultations</h2>
+    {% if labels %}
+      <canvas id="consultationsChart" height="120"></canvas>
+    {% else %}
+      <p class="text-muted mb-0">Pas encore assez de données pour afficher un graphique.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% if consultations_patient %}
+  <table class="table table-striped table-hover align-middle">
+    <thead class="table-success">
+      <tr>
+        <th>Date</th>
+        <th>Description (extrait)</th>
+        <th>État du patient</th>
+        <th>Nombre de traitements</th>
+        <th>Détails</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in consultations_patient %}
+        <tr>
+          <td>{{ c.date|date:"d/m/Y H:i" }}</td>
+          <td>{{ c.description|slice:":60" }}{% if c.description|length > 60 %}…{% endif %}</td>
+          <td>
+            {% if c.etat_patient == "Bon" %}
+              <span class="badge bg-success">Bon</span>
+            {% elif c.etat_patient == "Moyen" %}
+              <span class="badge bg-warning text-dark">Moyen</span>
+            {% elif c.etat_patient == "Mauvais" %}
+              <span class="badge bg-danger">Mauvais</span>
+            {% else %}
+              {{ c.etat_patient }}
+            {% endif %}
+          </td>
+          <td>{{ c.traitements.count }}</td>
+          <td>
+            <a href="{% url 'consultation_detail' c.id %}" class="btn btn-sm btn-outline-primary">
+              Voir la consultation
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p class="text-muted">Aucune consultation n’a encore été enregistrée pour ce patient.</p>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_scripts %}
+  {{ block.super }}
+  {% if labels %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const labels = {{ labels|safe }};
+      const counts = {{ counts|safe }};
+
+      const ctx = document.getElementById('consultationsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Consultations par mois',
+            data: counts,
+            tension: 0.3,
+            fill: false,
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              precision: 0
+            }
+          }
+        }
+      });
+    </script>
+  {% endif %}
+{% endblock %}

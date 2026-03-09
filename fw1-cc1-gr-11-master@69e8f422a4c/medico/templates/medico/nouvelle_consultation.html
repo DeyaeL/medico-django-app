@@ -1,0 +1,89 @@
+{% extends "medico/base.html" %}
+
+{% block title %}Nouvelle consultation - Medico{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Ajouter une nouvelle consultation</h1>
+
+<div class="card">
+  <div class="card-body">
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      {{ form.non_field_errors }}
+
+      <div class="mb-3">
+        {{ form.patient_nom.label_tag }}
+        {{ form.patient_nom }}
+      </div>
+
+      <div class="mb-3">
+        {{ form.patient_prenom.label_tag }}
+        {{ form.patient_prenom }}
+      </div>
+
+      <div class="mb-3">
+        {{ form.patient_genre.label_tag }}
+        {{ form.patient_genre }}
+      </div>
+
+      <div class="mb-3">
+        {{ form.patient_age.label_tag }}
+        {{ form.patient_age }}
+      </div>
+
+      <div class="mb-3">
+        {{ form.etat_patient.label_tag }}
+        {{ form.etat_patient }}
+      </div>
+
+      <div class="mb-3">
+        {{ form.description.label_tag }}
+        {{ form.description }}
+        <div class="mt-2 d-flex align-items-center gap-2">
+          <button type="button" class="btn btn-outline-success btn-sm" onclick="startDictation()">
+            <i class="bi bi-mic-fill"></i> Dicter la description
+          </button>
+          <small class="text-muted">Cliquez sur le micro et parlez pour remplir la description.</small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">
+        Enregistrer la consultation
+      </button>
+      <a href="{% url 'consultation_list' %}" class="btn btn-secondary ms-2">
+        Annuler
+      </a>
+    </form>
+  </div>
+</div>
+
+<script>
+function startDictation() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    alert("La dictée vocale n'est pas supportée par ce navigateur.");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = "fr-FR";
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  recognition.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    const textarea = document.getElementById("id_description");
+    if (textarea) {
+      textarea.value = (textarea.value ? textarea.value + " " : "") + transcript;
+    }
+  };
+
+  recognition.onerror = function(event) {
+    console.error("Erreur de reconnaissance vocale :", event.error);
+  };
+
+  recognition.start();
+}
+</script>
+{% endblock %}

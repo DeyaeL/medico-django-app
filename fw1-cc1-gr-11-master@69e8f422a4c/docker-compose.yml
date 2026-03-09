@@ -1,0 +1,19 @@
+services:
+  base:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      no_cache: true
+      args:
+        USERNAME: abire
+        USERID: 1000
+    container_name: fw1-cc1
+    command: /bin/bash
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/home/user/workspace
+    ports:
+      - "8088:8000"
+    environment:
+      PS1: "[ $$(whoami) | \\w ] "

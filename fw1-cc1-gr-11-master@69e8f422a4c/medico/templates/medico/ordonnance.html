@@ -1,0 +1,145 @@
+{% extends "medico/base.html" %}
+
+{% block title %}Ordonnance - Consultation n°{{ consultation.id }}{% endblock %}
+{% load static %}
+{% block content %}
+<div class="ordonnance-wrapper my-4 d-flex justify-content-center">
+  <div class="ordonnance-sheet bg-white p-4 p-md-5 rounded-3 shadow-sm">
+    <div class="row align-items-center mb-4">
+      <div class="col-3 text-center">
+        <div class="border rounded-circle d-flex align-items-center justify-content-center mx-auto"
+             style="width:80px;height:80px;overflow:hidden;">
+          <img
+            src="{% static 'medico/docteur.png' %}"
+            alt="Logo clinique"
+            class="img-fluid"
+            style="width:100%;height:100%;object-fit:cover;"
+          >
+        </div>
+        <div class="mt-2 small text-muted">
+          Medico
+        </div>
+      </div>
+
+      <div class="col-9 text-end">
+        <h2 class="h5 mb-1">Dr.said</h2>
+        <p class="mb-1 small">
+          Cabinet médical Medico<br>
+          10 Rue de l'Université<br>
+          45000 Orléans – France
+        </p>
+        <p class="mb-0 small">
+          Tél : +33 4 56 89 99 45
+        </p>
+      </div>
+    </div>
+
+    <hr class="mb-4">
+
+    <div class="text-center mb-4">
+      <h1 class="h4 mb-1" style="letter-spacing:0.15em;">ORDONNANCE MÉDICALE</h1>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-7">
+        <div class="border rounded-3 p-3">
+          <h3 class="h6 mb-3">Informations du patient</h3>
+          <p class="mb-1"><strong>Nom :</strong> {{ consultation.patient_nom }}</p>
+          <p class="mb-1"><strong>Prénom :</strong> {{ consultation.patient_prenom }}</p>
+          <p class="mb-1"><strong>Genre :</strong> {{ consultation.patient_genre }}</p>
+          <p class="mb-0"><strong>Âge :</strong> {{ consultation.patient_age }} ans</p>
+        </div>
+      </div>
+      <div class="col-md-5 mt-3 mt-md-0">
+        <div class="border rounded-3 p-3">
+          <h3 class="h6 mb-3">Consultation</h3>
+          <p class="mb-1">
+            <strong>Date :</strong> {{ consultation.date|date:"d/m/Y" }}
+          </p>
+          <p class="mb-1">
+            <strong>Heure :</strong> {{ consultation.date|date:"H:i" }}
+          </p>
+          <p class="mb-0">
+            <strong>N° :</strong> {{ consultation.id }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="mb-5">
+      <h3 class="h6 mb-3">Traitements prescrits</h3>
+
+      {% if traitements %}
+        <ul class="list-group">
+          {% for t in traitements %}
+            <li class="list-group-item">
+              <p class="mb-1">
+                <strong>{{ t.medicament }}</strong>
+                – {{ t.quantite }} {{ t.contenant }}
+              </p>
+              <p class="mb-1 small">
+                <strong>Durée :</strong> {{ t.duree }} jours
+              </p>
+              <p class="mb-0 small">
+                <strong>Posologie :</strong>
+                {{ t.frequence }} – {{ t.moment }}
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-muted">
+          Aucun traitement n’est enregistré pour cette consultation.
+        </p>
+      {% endif %}
+    </div>
+    <div class="mt-5">
+      <p class="small mb-2">
+        Fait à Orléans, le {{ consultation.date|date:"d/m/Y" }}
+      </p>
+      <p class="small mb-5">
+        Signature du médecin :
+      </p>
+      <div style="height:60px;"></div>
+    </div>
+    <div class="text-center mt-4 d-print-none">
+      <a href="{% url 'consultation_detail' consultation.id %}" class="btn btn-outline-secondary btn-lg me-2">
+        <i class="bi bi-arrow-left-circle"></i> Retour à la consultation
+      </a>
+      <button class="btn btn-success btn-lg" onclick="window.print()">
+        <i class="bi bi-printer"></i> Imprimer l’ordonnance
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .ordonnance-sheet {
+    max-width: 800px;
+    border: 1px solid #dcdcdc;
+  }
+
+  @media print {
+    nav.navbar,
+    footer,
+    .d-print-none {
+      display: none !important;
+    }
+    body {
+      background: #ffffff !important;
+    }
+    main.container {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .ordonnance-wrapper {
+      margin: 0 !important;
+    }
+    .ordonnance-sheet {
+      box-shadow: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+    }
+  }
+</style>
+{% endblock %}
